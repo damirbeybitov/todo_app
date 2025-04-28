@@ -1,0 +1,40 @@
+app/
+├── api/            # Маршруты (роутеры) разбитые по модулям
+│   ├── v1/
+│   │   ├── endpoints/
+│   │   │   ├── users.py
+│   │   │   ├── auth.py
+│   │   │   └── items.py
+│   │   └── __init__.py
+│   └── __init__.py
+├── core/           # Настройки, конфигурация, безопасность
+│   ├── config.py   # Настройки через pydantic.BaseSettings
+│   ├── security.py # Логика токенов, авторизации
+│   └── __init__.py
+├── models/         # Модели базы данных
+│   ├── user.py
+│   ├── item.py
+│   └── __init__.py
+├── schemas/        # Pydantic-схемы для валидации запросов/ответов
+│   ├── user.py
+│   ├── item.py
+│   └── __init__.py
+├── services/       # Бизнес-логика
+│   ├── user_service.py
+│   ├── auth_service.py
+│   └── __init__.py
+├── db/             # Работа с БД
+│   ├── base.py     # Base = declarative_base()
+│   ├── session.py  # Создание сессии подключения
+│   └── __init__.py
+├── main.py         # Точка входа приложения FastAPI
+└── __init__.py
+tests/              # Тесты (pytest + httpx)
+├── api/
+├── services/
+└── conftest.py
+.env                 # Переменные окружения
+requirements.txt     # Зависимости
+alembic/             # Миграции базы данных (если используешь)
+Dockerfile           # Для деплоя в контейнер
+docker-compose.yml   # Для локальной сборки
